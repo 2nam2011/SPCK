@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UFT-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="../asset/css/login.css" />
+  </head>
+
+  <body>
+    <div>
+      <form action="" id="login-form">
+        <h1>Register</h1>
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email" />
+        <span
+          style="background-color: white; color: red; font-size: 12px"
+          id="email-error"
+        ></span>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" />
+        <span
+          style="background-color: white; color: red; font-size: 12px"
+          id="pass1-error"
+        ></span>
+
+        <label for="repassword">Confirm password:</label>
+        <input type="password" name="repassword" id="repassword" />
+        <span
+          style="background-color: white; color: red; font-size: 12px"
+          id="pass2-error"
+        ></span>
+
+        <button type="submit" id="register-button">Register</button>
+
+        <p>Have an account? <a href="./login.html">Login</a></p>
+        <a href="./index.html" class="Home">Home</a>
+      </form>
+    </div>
+    <script type="module" src="../asset/js/firebase_config.js"></script>
+    <script type="module" src="../asset/js/register.js"></script>
+  </body>
+</html>

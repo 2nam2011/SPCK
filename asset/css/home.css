@@ -1,0 +1,414 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#header {
+  padding: 12px 0;
+  box-shadow:
+    rgba(17, 17, 26, 0.05) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  z-index: 10;
+  position: sticky;
+}
+
+#content {
+  height: 500px;
+}
+
+.container {
+  width: 1000px;
+  margin: auto;
+}
+
+#header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  width: 150px;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  gap: 20px;
+}
+
+.nav-left {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-left a {
+  text-decoration: none;
+  color: black;
+}
+
+#login-btn {
+  background-color: rgb(125, 64, 18);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+#login-btn:hover {
+  background-color: rgb(194, 119, 13);
+}
+
+#nav-logout-btn {
+  background-color: rgb(125, 64, 18);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+#nav-logout-btn:hover {
+  background-color: rgb(194, 119, 13);
+}
+
+#content .container {
+  display: flex;
+  align-items: center;
+}
+
+.left-column {
+  width: 50%;
+  height: fit-content;
+}
+
+.hero-heading {
+  margin-bottom: 36px;
+}
+
+.hero-heading h1 {
+  font-size: 64px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.hero-heading span {
+  color: rgb(194, 119, 13);
+}
+
+.hero-button {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 12px;
+}
+
+.hero-button button {
+  color: white;
+  padding: 12px 24px;
+  border: none;
+}
+
+.hero-button button:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+.secondary-btn {
+  background-color: #c0aa83;
+}
+
+.primary-btn {
+  background-color: black;
+  color: black;
+}
+
+.container .banner img {
+  height: 100%;
+  height: fit-content;
+}
+
+.right-column img {
+  width: 70%;
+}
+
+#our-dealer .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+  margin-bottom: 80px;
+}
+
+#our-dealer .container .left-column h1 {
+  color: #c0aa83;
+  font-size: 100px;
+}
+
+#our-dealer .container .left-column p {
+  font-size: 50px;
+}
+
+#our-dealer .container .right-column {
+  width: 50%;
+}
+
+#ourdealer .container .left-column {
+  width: 50%;
+}
+
+#our-clients-say .container.header {
+  background-color: lightblue;
+  align-items: center;
+}
+
+#our-clients-say .container .words {
+  background-color: lightcoral;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#footer {
+  background-image: url("../image/footer_map.png");
+  background-color: rgb(77, 77, 77);
+  width: 100%;
+}
+
+#footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-info {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  gap: 80px;
+  padding: 80px 0;
+}
+
+.left-info {
+  width: 400px;
+}
+
+.left-info p {
+  color: white;
+  margin-top: 14px;
+}
+
+.right-info h1 {
+  color: burlywood;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.right-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.copyright {
+  padding: 20px 0;
+  background-color: black;
+  width: 100%;
+}
+
+.copyright p {
+  color: white;
+  width: 98.5vw;
+  text-align: center;
+}
+
+.copyright span {
+  color: rgb(194, 119, 13);
+}
+
+.footer-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-menu a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-menu a:hover {
+  color: #c0aa83;
+}
+
+#products-section .container {
+  background-color: #f6f6f6;
+  text-align: center;
+}
+
+#products-section .container h1 {
+  margin-bottom: 36px;
+  text-align: center;
+}
+
+  #products-section .container a {
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+#products-section {
+  margin-bottom: 48px;
+}
+
+#search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.container #products-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.products-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+  transition: transform 0.4s ease;
+}
+
+.products-info {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.products-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2d1a0e;
+}
+
+.products-discription {
+  font-size: 13px;
+  color: #6b5744;
+  line-height: 1.5;
+}
+
+.products-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: rgb(194, 119, 13);
+  margin-top: 4px;
+}
+
+.products-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.09);
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.products-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(125, 64, 18, 0.18);
+}
+
+.products-card:hover .products-img {
+  transform: scale(1.05);
+}
+
+.products-card a {
+  text-decoration: none;
+}
+
+#buy-btn {
+  display: block;
+  margin: 0 16px 8px;
+  padding: 10px 0;
+  width: calc(100% - 32px);
+  background-color: rgb(125, 64, 18);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#buy-btn:hover {
+  background-color: rgb(194, 119, 13);
+}
+
+#cart-btn {
+  display: block;
+  margin: 0 16px 16px;
+  padding: 9px 0;
+  width: calc(100% - 32px);
+  background-color: #f0e6d3;
+  color: rgb(125, 64, 18);
+  border: 1.5px solid #c0aa83;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#cart-btn:hover {
+  background-color: #c0aa83;
+  color: white;
+}
+
+.delivery-points .points {
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+}
+
+.delivery-points .points div h4 {
+  margin: 10px 0px;
+}
+
+.left-column button {
+  width: 128px;
+  height: 48px;
+}
+
+.btn {
+  background-color: #c0aa83;
+  color: white;
+  border: none;
+}
+
+.btn:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}

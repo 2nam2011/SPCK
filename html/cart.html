@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="../asset/css/cart.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header id="header">
+      <div class="container">
+        <div class="logo">
+          <img src="../asset/image/logo.png" alt="" />
+        </div>
+        <div class="navigation">
+          <div class="nav-left">
+            <a href="./home.html">Home</a>
+            <a href="./aboutus.html">About</a>
+            <a href="./contacts.html">Contact</a>
+          </div>
+          <div class="nav-right">
+            <a href="./login.html">
+              <button id="login-btn">Login</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div id="introduction">
+      <div class="container">
+        <h1>Cart</h1>
+        <p><span>CoffeeKing</span> > Cart</p>
+      </div>
+    </div>
+
+    <!-- CART SECTION -->
+    <div class="cart-container">
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td class="remove">×</td>
+
+            <td class="product-info">
+              <img src="../asset/image/product1.jpg" alt="" />
+              <span>American Black Coffee</span>
+            </td>
+
+            <td class="price">$14.00</td>
+
+            <td>
+              <div class="quantity-box">
+                <input type="number" value="1" />
+              </div>
+            </td>
+
+            <td class="subtotal">$14.00</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- <div class="cart-actions">
+        <div class="left-actions">
+          <input type="text" placeholder="Coupon code" />
+          <button>Apply coupon</button>
+        </div>
+
+        <button class="update-btn">Update cart</button>
+      </div> -->
+
+      <div class="cart-total-box">
+        <div class="total-line small">
+          <span>Subtotal</span>
+          <span>$14.00</span>
+        </div>
+
+        <div class="total-line big">
+          <span>Total</span>
+          <span>$14.00</span>
+        </div>
+
+        <button class="checkout-btn">Proceed to checkout</button>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div id="footer">
+      <div class="container">
+        <div class="footer-info">
+          <div class="left-info">
+            <div class="logo">
+              <img src="../asset/image/logo.png" alt="" />
+            </div>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus
+              ratione reiciendis aperiam consequuntur aspernatur fugit
+              consectetur! Quod, repellat iusto explicabo modi, quasi officia
+              exercitationem animi minima laborum ex nisi dolor.
+            </p>
+          </div>
+          <div class="right-info">
+            <h1>explore</h1>
+            <div class="footer-menu">
+              <a href="./home.html">Home</a>
+              <a href="./aboutus.html">About</a>
+              <a href="./contacts.html">Contact</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>Like-themes <span>© All Rights Reserved - 2017</span></p>
+      </div>
+    </div>
+  </body>
+</html>

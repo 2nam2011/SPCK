@@ -1,0 +1,56 @@
+* {
+  background-color:wheat;
+}
+
+#login-form {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  border-radius: 8px;
+  width: 300px;
+  margin: auto;
+  margin-top: 32px;
+}
+
+#login-form .Home{
+  margin: auto;
+}
+
+#login-form h1 {
+  color: rgb(136, 66, 0);
+  background-color: white;
+  text-align: center;
+}
+
+#login-form a {
+  background-color: white;
+  text-decoration: none;
+  color: rgba(184, 88, 44, 0.858);
+}
+
+#login-form label {
+  background-color: white;
+}
+
+#login-form input {
+  background-color: white;
+  height: 25px;
+  border-radius: 10px;
+}
+
+#login-form button {
+  border-radius: 5px;
+  color: white;
+  margin: auto;
+  background-color: rgb(169, 100, 16);
+  width: 160px;
+  height: 40px;
+}
+
+#login-form p {
+  margin: auto;
+  background-color: white;
+}
+

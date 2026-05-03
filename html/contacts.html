@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UFT-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="../asset/css/contacts.css" />
+  </head>
+  <body>
+    <header id="header">
+      <div class="container">
+        <div class="logo">
+          <img src="../asset/image/logo.png" alt="" />
+        </div>
+        <div class="navigation">
+          <div class="nav-left">
+            <a href="./home.html">Home</a>
+            <a href="./aboutus.html">About</a>
+            <a href="./contacts.html">Contact</a>
+          </div>
+          <div class="nav-right">
+            <a id="nav-login-link" href="./login.html">
+              <button id="login-btn">Login</button>
+            </a>
+            <div id="nav-user-info" style="display:none; align-items:center; gap:10px;">
+              <span id="nav-user-name" style="font-weight:600;"></span>
+              <button id="nav-logout-btn">Logout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div id="introduction">
+      <div class="container">
+        <h1>Contact us</h1>
+        <p><span>CoffeeKing</span> > Contact us</p>
+      </div>
+    </div>
+
+    <div id="content">
+      <div class="container">
+        <div class="contact">
+          <div class="contact-heading">
+            <h2>Central Office</h2>
+            <p>
+              Nam eu mi eget velit vulputate tempor gravida quis massa. In
+              malesuada condimentum ultrices. Sed et mauris a purus fermentum
+              elementum. Sed tristique semper enim, et gravida orci iaculis et.
+              Nulla facilisi.
+            </p>
+          </div>
+          <div class="contact-footer">
+            <div>
+              <img src="../asset/image/phone.png" alt="" />
+              <p>0(800) 890-90-609</p>
+            </div>
+            <div>
+              <img src="../asset/image/adress.png" alt="" />
+              <p>mycoffeeshop</p>
+            </div>
+            <div>
+              <img src="../asset/image/locate.png" alt="" />
+              <p>29 Nicolas str, New York, 987597-50</p>
+            </div>
+          </div>
+        </div>
+        <div class="opening-time">
+          <h1>Opening hours</h1>
+          <ol>
+            <p>Monday: 9:00 – 19:00</p>
+            <p>Tuesday: 9:00 – 19:00</p>
+            <p>Wednesday: 9:00 – 19:00</p>
+            <p>Thursday: 9:00 – 19:00</p>
+            <p>Friday: 9:00 – 19:00</p>
+            <p>Saturday: 11:00 – 16:00</p>
+            <p>Sunday: CLOSED</p>
+          </ol>
+        </div>
+        <div class="your-info">
+          <label for="username"> Your Name </label>
+          <input type="text" name="username" id="username" />
+
+          <label for="email"> Your Email </label>
+          <input type="text" name="email" id="email" />
+
+          <label for="message"> Your Message</label>
+          <input type="text" name="message" id="message" />
+          <button>SUBMIT</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="content">
+      <div class="container">
+        <div class="left-column">
+          <div class="hero-heading">
+            <h1>Save and delivery points</h1>
+            <p>
+              Sed sagittis sodales lobortis. Curabitur in eleifend turpis, id
+              vehicula odio. Donec pulvinartellus eget magna aliquet ultricies.
+              Praesent gravida hendreritex, nec eleifend semconvallis vitae.
+            </p>
+            <div class="delivery-points">
+              <h2>Where buy our coffee:</h2>
+              <div class="points">
+                <div>
+                  <h4>Canada</h4>
+                  <h4>USA</h4>
+                  <h4>Mexico</h4>
+                </div>
+                <div>
+                  <h4>Brazil</h4>
+                  <h4>Argentina</h4>
+                  <h4>Europe</h4>
+                </div>
+                <div>
+                  <h4>Russia</h4>
+                  <h4>Asia</h4>
+                  <h4>Australia</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="btn">View all points</button>
+        </div>
+        <div class="right-column">
+          <div class="banner">
+            <img src="../asset/image/map.png" alt="This is a map" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <div class="footer-info">
+          <div class="left-info">
+            <div class="logo">
+              <img src="../asset/image/logo.png" alt="" />
+            </div>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus
+              ratione reiciendis aperiam consequuntur aspernatur fugit
+              consectetur! Quod, repellat iusto explicabo modi, quasi officia
+              exercitationem animi minima laborum ex nisi dolor.
+            </p>
+          </div>
+          <div class="right-info">
+            <h1>explore</h1>
+            <div class="footer-menu">
+              <a href="./home.html">Home</a>
+              <a href="./aboutus.html">About</a>
+              <a href="./contacts.html">Contact</a>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>Like-themes <span>© All Rights Reserved - 2017</span></p>
+        </div>
+      </div>
+    </div>
+    <script type="module">
+      import { initNav } from "../asset/js/nav.js";
+      initNav();
+    </script>
+  </body>
+</html>

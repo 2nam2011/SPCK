@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#header {
+  padding: 12px 0;
+  box-shadow:
+    rgba(17, 17, 26, 0.05) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  z-index: 10;
+  position: sticky;
+}
+
+#content {
+  height: 500px;
+}
+
+.container {
+  width: 1000px;
+  margin: auto;
+}
+
+#header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  width: 150px;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  gap: 20px;
+}
+
+.nav-left {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-left a {
+  text-decoration: none;
+  color: black;
+}
+
+#login-btn {
+  background-color: rgb(125, 64, 18);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+#content .container {
+  display: flex;
+  align-items: center;
+}
+
+.left-column {
+  width: 50%;
+  height: fit-content;
+}
+
+.hero-heading {
+  margin-bottom: 36px;
+}
+
+.hero-heading h1 {
+  font-size: 64px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.hero-heading span {
+  color: rgb(194, 119, 13);
+}
+
+.hero-button {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 12px;
+}
+
+.hero-button button {
+  color: white;
+  padding: 12px 24px;
+  border: none;
+}
+
+.hero-button button:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+.secondary-btn {
+  background-color: #c0aa83;
+}
+
+.primary-btn {
+  background-color: black;
+  color: black;
+}
+
+.container .banner img {
+  width: 100%;
+  height: fit-content;
+}
+
+.right-column img {
+  width: 70%;
+}
+
+#footer {
+  background-image: url("./footer_map.png");
+  background-color: rgb(77, 77, 77);
+}
+
+#footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-info {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  gap: 80px;
+  padding: 80px 0;
+}
+
+.left-info {
+  width: 400px;
+}
+
+.left-info p {
+  color: white;
+  margin-top: 14px;
+}
+
+.right-info h1 {
+  color: burlywood;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.copyright {
+  padding: 20px 0;
+  background-color: black;
+}
+
+.copyright p {
+  color: white;
+  width: 100vw;
+  text-align: center;
+}
+
+.copyright span {
+  color: rgb(194, 119, 13);
+}
+
+.footer-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-menu a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-menu a:hover {
+  color: red;
+}
+
+#products-section .container h1 {
+  margin-bottom: 36px;
+  text-align: center;
+}
+
+#products-section {
+  margin-bottom: 48px;
+}
+
+#products-section .container a {
+  justify-content: center;
+}
+
+#products-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.products-img {
+  height: 240px;
+}
+
+.products-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+#buy-btn {
+  margin: auto;
+  display: block;
+  margin-top: 20px;
+  padding: 12px 40px;
+  background-color: rgb(194, 119, 13);
+}
+
+#cart-btn {
+  margin: auto;
+}
+
+.delivery-points .points {
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+}
+
+.delivery-points .points div h4 {
+  margin: 10px 0px;
+}
+
+.left-column button {
+  width: 128px;
+  height: 48px;
+}
+
+.btn {
+  background-color: #c0aa83;
+  color: white;
+  border: none;
+}

@@ -1,0 +1,359 @@
+/* --- Reset & Base Styles --- */
+:root {
+    --primary-color: #4f46e5; /* Màu chủ đạo (Indigo) */
+    --primary-hover: #4338ca;
+    --text-color: #1f2937;
+    --text-light: #6b7280;
+    --bg-color: #f9fafb;
+    --white: #ffffff;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+/* --- Container --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Header --- */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#header {
+  padding: 12px 0;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  z-index: 10;
+  position: sticky;
+}
+
+#content {
+  height: 500px;
+}
+
+.container {
+  width: 1000px;
+  margin: auto;
+}
+
+#header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  width: 150px;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  gap: 20px;
+}
+
+.nav-left {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-left a {
+  text-decoration: none;
+  color: black;
+}
+
+#login-btn {
+  background-color: rgb(125, 64, 18);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+#login-btn:hover {
+  background-color: rgb(194, 119, 13);
+}
+
+#nav-logout-btn {
+  background-color: rgb(125, 64, 18);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+#nav-logout-btn:hover {
+  background-color: rgb(194, 119, 13);
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: var(--radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+}
+
+.btn-primary {
+    background-color: #c0aa83;
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color:#b29a71;
+}
+
+.btn-outline {
+    border: 1px solid #d1d5db;
+    background: transparent;
+}
+
+.btn-outline:hover {
+    border-color: #b29a71;
+    color: #c0aa83;
+}
+
+/* --- Product List Page (Grid) --- */
+.hero {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+.hero p { color: var(--text-light); }
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    padding-bottom: 60px;
+}
+
+.product-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.product-image {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+    background-color: #eee;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-category {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.product-title {
+    font-size: 1.1rem;
+    margin: 5px 0 10px;
+    font-weight: 600;
+}
+
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* --- Product Detail Page --- */
+.breadcrumb {
+    padding: 20px 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.product-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    padding-bottom: 80px;
+    align-items: start;
+}
+
+.detail-gallery img {
+    width: 100%;
+    border-radius: var(--radius);
+    border: 1px solid #e5e7eb;
+}
+
+.detail-info h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.detail-price {
+    font-size: 1.5rem;
+    color:#c0aa83;
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.detail-desc {
+    color: var(--text-light);
+    margin-bottom: 30px;
+}
+
+.actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    border: 1px solid #d1d5db;
+    border-radius: var(--radius);
+}
+
+.quantity-selector button {
+    background: none;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.quantity-selector input {
+    width: 40px;
+    text-align: center;
+    border: none;
+    outline: none;
+    font-weight: bold;
+}
+
+/* --- Footer --- */
+#footer {
+  background-image: url("../image/footer_map.png");
+  background-color: rgb(77, 77, 77);
+  width: 100%;
+}
+
+#footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-info {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  gap: 80px;
+  padding: 80px 0;
+}
+
+.left-info {
+  width: 400px;
+}
+
+.left-info p {
+  color: white;
+  margin-top: 14px;
+}
+
+.right-info h1 {
+  color: burlywood;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.right-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.copyright {
+  padding: 20px 0;
+  background-color: black;
+  width: 100%;
+}
+
+.copyright p {
+  color: white;
+  width: 98.5vw;
+  text-align: center;
+}
+
+.copyright span {
+  color: rgb(194, 119, 13);
+}
+
+.footer-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-menu a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-menu a:hover {
+  color: #c0aa83;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .product-detail {
+        grid-template-columns: 1fr;
+    }
+}

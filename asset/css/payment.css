@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    padding: 12px 0;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+        rgba(17, 17, 26, 0.05) 0px 8px 32px;
+    z-index: 10;
+    position: sticky;
+}
+
+.container {
+    width: 1000px;
+    margin: auto;
+    height: fit-content;
+}
+
+#header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 150px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    gap: 20px;
+}
+
+.nav-left {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-left a {
+    text-decoration: none;
+    color: black;
+}
+
+#content {
+    height: fit-content;
+    margin: 80px;
+}
+
+#payment-info {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    margin: auto;
+    padding: 40px;
+    border-radius: 20px;
+    border: solid 2px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.info button {
+    margin: auto;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #c0aa83;
+    color: white;
+}
+
+#footer {
+    background-image: url("../image/footer_map.png");
+    background-color: rgb(77, 77, 77);
+    width: 100%;
+    /* margin-top: 1000px; */
+}
+
+#footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-info {
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    gap: 80px;
+    padding: 80px 0;
+}
+
+.left-info {
+    width: 400px;
+}
+
+.left-info p {
+    color: white;
+    margin-top: 14px;
+}
+
+.right-info h1 {
+    color: burlywood;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.right-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.copyright {
+    padding: 20px 0;
+    background-color: black;
+    width: 100%;
+}
+
+.copyright p {
+    color: white;
+    width: 98.5vw;
+    text-align: center;
+}
+
+.copyright span {
+    color: rgb(194, 119, 13);
+}
+
+.footer-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-menu a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-menu a:hover {
+    color: #c0aa83;
+}

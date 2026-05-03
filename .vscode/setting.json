@@ -1,0 +1,11 @@
+{
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  },
+  "editor.suggestOnTriggerCharacters": true,
+  "editor.acceptSuggestionOnEnter": "on",
+  "editor.wordBasedSuggestions": "on",
+  "editor.tabCompletion": "on"
+}

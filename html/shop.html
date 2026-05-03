@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop</title>
+    <link rel="stylesheet" href="../asset/css/shop.css" />
+  </head>
+  <body>
+    <header id="header">
+      <div class="container">
+        <div class="logo">
+          <img src="../asset/image/logo.png" alt="" />
+        </div>
+        <div class="navigation">
+          <div class="nav-left">
+            <a href="./home.html">Home</a>
+            <a href="./aboutus.html">About</a>
+            <a href="./contacts.html">Contact</a>
+          </div>
+          <div class="nav-right">
+            <a id="nav-login-link" href="./login.html">
+              <button id="login-btn">Login</button>
+            </a>
+            <div id="nav-user-info" style="display:none; align-items:center; gap:10px;">
+              <span id="nav-user-name" style="font-weight:600;"></span>
+              <button id="nav-logout-btn">Logout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div id="content">
+      <div id="search">
+        <input type="text" name="search-bar" id="search-input" />
+        <button type="button" class="search-btn" id="search-btn">Search</button>
+      </div>
+      <div class="container">
+        <div id="products-list"></div>
+      </div>
+    </div>
+
+    <script type="module" src="../asset/js/product.js"></script>
+    <script type="module">
+      import { initNav } from "../asset/js/nav.js";
+      import { addToCart } from "../asset/js/cart.js";
+      window.addToCart = addToCart;
+
+      import { renderProduct } from "../asset/js/product.js";
+      initNav();
+      renderProduct("products-list");
+    </script>
+  </body>
+</html>
