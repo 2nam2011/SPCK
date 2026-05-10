@@ -15,6 +15,7 @@ export async function addToCart(productId) {
 
   //B1: Kiem tra dang nhap
   if (!user) {
+    // Neu chua -> yeu cau dang nhap
     alert("Vui lòng đăng nhập để tiếp tục!");
     window.location.href = "login.html";
   }
@@ -43,8 +44,8 @@ export async function addToCart(productId) {
       return;
     }
 
-    // Neu cart da ton tai
-    let items = docSnap.data().items || []; // Lay ds item trong cart
+    // Neu cart da ton tai -> Lay ds item trong cart
+    let items = docSnap.data().items || [];
 
     // Kiem tra san pham da co chua
     const index = items.findIndex((item) => item.productId === productId); // Tim item co productId trong cart

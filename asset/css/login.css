@@ -54,3 +54,30 @@
   background-color: white;
 }
 
+/* ===== RESPONSIVE - ĐIỆN THOẠI ===== */
+@media (max-width: 768px) {
+  #login-form {
+    width: 90%;
+    max-width: 340px;
+    margin: 24px auto;
+    padding: 20px 16px;
+  }
+
+  #login-form input {
+    width: 100%;
+    box-sizing: border-box;
+    height: 38px;
+    font-size: 15px;
+  }
+
+  #login-form button {
+    width: 100%;
+    height: 44px;
+    font-size: 15px;
+  }
+
+  #login-form h1 {
+    font-size: 22px;
+  }
+}
+

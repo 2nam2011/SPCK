@@ -23,7 +23,7 @@ function handleGoogleLogin() {
     .then((result) => {
       const user = result.user;
       console.log("Google login successful:", user);
-      window.location.href = "home.html"; // Chuyển đến trang home
+      window.location.href = "index.html"; // Chuyển đến trang home
     })
     .catch((error) => {
       console.error("Google login error:", error.message);

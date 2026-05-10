@@ -249,3 +249,93 @@
   color: white;
   border: none;
 }
+
+/* ===== RESPONSIVE - ĐIỆN THOẠI ===== */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
+  #header .container {
+    flex-direction: column;
+    gap: 10px;
+    padding: 8px 16px;
+  }
+
+  .logo img {
+    width: 120px;
+  }
+
+  .navigation {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .nav-left {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  #content {
+    height: auto;
+  }
+
+  #content .container {
+    flex-direction: column;
+    padding: 20px 16px;
+  }
+
+  .left-column {
+    width: 100%;
+  }
+
+  .right-column img {
+    width: 100%;
+  }
+
+  .hero-heading h1 {
+    font-size: 36px;
+  }
+
+  .hero-button {
+    flex-wrap: wrap;
+  }
+
+  .hero-button button {
+    width: 100%;
+  }
+
+  .left-column button {
+    width: 100%;
+  }
+
+  .footer-info {
+    flex-direction: column;
+    gap: 30px;
+    padding: 40px 16px;
+  }
+
+  .left-info {
+    width: 100%;
+  }
+
+  .delivery-points .points {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #products-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .products-img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+  }
+}

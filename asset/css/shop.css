@@ -205,3 +205,71 @@
   color: white;
 }
 
+/* ===== RESPONSIVE - ĐIỆN THOẠI ===== */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
+  /* Header */
+  #header .container {
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px 16px;
+  }
+
+  .logo img {
+    width: 110px;
+  }
+
+  .navigation {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .nav-left {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  /* Content */
+  #content {
+    height: auto;
+    width: 100%;
+  }
+
+  #content .container {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  /* Search */
+  #content #search {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  #content #search input,
+  #content #search select {
+    width: 100%;
+  }
+
+  /* Products list */
+  #products-list {
+    gap: 14px;
+    padding: 10px 0;
+  }
+
+  .products-card {
+    width: 90%;
+    max-width: 340px;
+  }
+}
+

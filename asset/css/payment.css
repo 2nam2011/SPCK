@@ -148,3 +148,77 @@
 .footer-menu a:hover {
     color: #c0aa83;
 }
+
+/* ===== RESPONSIVE - ĐIỆN THOẠI ===== */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
+  /* Header */
+  #header .container {
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px 16px;
+  }
+
+  .logo img {
+    width: 110px;
+  }
+
+  .navigation {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .nav-left {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  /* Content */
+  #content {
+    margin: 24px 0;
+    padding: 0 16px;
+  }
+
+  /* Payment Info */
+  #payment-info {
+    flex-direction: column;
+    width: 100%;
+    padding: 20px 16px;
+    border-radius: 12px;
+    gap: 16px;
+    box-sizing: border-box;
+  }
+
+  .info {
+    width: 100%;
+  }
+
+  .info button {
+    width: 100%;
+    height: 44px;
+    font-size: 15px;
+  }
+
+  /* Footer */
+  .footer-info {
+    flex-direction: column;
+    gap: 30px;
+    padding: 40px 16px;
+  }
+
+  .left-info {
+    width: 100%;
+  }
+
+  .copyright p {
+    width: 100%;
+  }
+}
