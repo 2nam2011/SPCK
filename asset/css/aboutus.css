@@ -143,12 +143,15 @@
 }
 
 .container .banner img {
-  height: 100%;
-  height: fit-content;
+  height: auto;
+  width: 100%;
+  object-fit: contain;
 }
 
 .right-column img {
   width: 100%;
+  height: auto;
+  display: block;
 }
 
 #description .container {

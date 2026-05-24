@@ -118,6 +118,8 @@
 
 .right-column img {
   width: 70%;
+  height: auto;
+  display: block;
 }
 
 #footer {

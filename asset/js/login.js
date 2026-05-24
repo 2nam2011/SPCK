@@ -4,6 +4,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
 } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
+import { app } from "./firebase_config.js";
 
 // Lay the input tu file html
 const emailElement = document.getElementById("email");
@@ -16,7 +17,7 @@ const loginButton = document.getElementById("login-button");
 
 // Hàm xử lý đăng nhập Google
 function handleGoogleLogin() {
-  const auth = getAuth();
+  const auth = getAuth(app);
   const provider = new GoogleAuthProvider(); // Tạo provider Google
 
   signInWithPopup(auth, provider)
@@ -43,13 +44,13 @@ function handleLoginClick(event) {
   let password = passElement.value.trim();
 
   if (validate(email, password) === true) {
-    const auth = getAuth();
+    const auth = getAuth(app);
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
         console.log("Login successful:", user);
-        window.location.href = "home.html";
+        window.location.href = "index.html";
       })
       .catch((error) => {
         const errorCode = error.code;

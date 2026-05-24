@@ -6,23 +6,41 @@
     <title>Home</title>
     <link rel="stylesheet" href="../asset/css/cart.css" />
   </head>
+
   <body>
     <!-- HEADER -->
     <header id="header">
       <div class="container">
         <div class="logo">
-          <img src="../asset/image/logo.png" alt="" />
+          <img src="../asset/image/logo.png" alt="logo" />
         </div>
         <div class="navigation">
           <div class="nav-left">
             <a href="./index.html">Home</a>
             <a href="./aboutus.html">About</a>
             <a href="./contacts.html">Contact</a>
+            <a href="./shop.html">Shop</a>
+          </div>
+          <div>
+            <a href="./cart.html">
+              <img
+                src="../asset/image/cart-removebg-preview.png"
+                alt=""
+                height="48"
+              />
+            </a>
           </div>
           <div class="nav-right">
-            <a href="./login.html">
+            <a id="nav-login-link" href="./login.html">
               <button id="login-btn">Login</button>
             </a>
+            <div
+              id="nav-user-info"
+              style="display: none; align-items: center; gap: 10px"
+            >
+              <span id="nav-user-name" style="font-weight: 600"></span>
+              <button id="nav-logout-btn">Logout</button>
+            </div>
           </div>
         </div>
       </div>
@@ -36,7 +54,7 @@
     </div>
 
     <!-- CART SECTION -->
-    <div class="cart-container">
+    <!-- <div class="cart-container">
       <table class="cart-table">
         <thead>
           <tr>
@@ -70,15 +88,6 @@
         </tbody>
       </table>
 
-      <!-- <div class="cart-actions">
-        <div class="left-actions">
-          <input type="text" placeholder="Coupon code" />
-          <button>Apply coupon</button>
-        </div>
-
-        <button class="update-btn">Update cart</button>
-      </div> -->
-
       <div class="cart-total-box">
         <div class="total-line small">
           <span>Subtotal</span>
@@ -91,6 +100,18 @@
         </div>
 
         <button class="checkout-btn">Proceed to checkout</button>
+      </div>
+    </div> -->
+
+    <div id="product-section" style="margin-top: 40px">
+      <div class="container">
+        <h1 style="text-align: left">Giỏ hàng</h1>
+
+        <div id="cart"></div>
+
+        <h2 id="total">Tổng: $0</h2>
+
+        <a href="index.html" style="text-align: right">← Quay lại mua hàng</a>
       </div>
     </div>
 
@@ -123,5 +144,11 @@
         <p>Like-themes <span>© All Rights Reserved - 2017</span></p>
       </div>
     </div>
+    <script type="module">
+      import { app } from "../asset/js/firebase_config.js";
+      import { loadCart } from "../asset/js/cart.js";
+      import { initNav } from "../asset/js/nav.js";
+      initNav();
+    </script>
   </body>
 </html>

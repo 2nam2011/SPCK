@@ -128,13 +128,10 @@
   color: black;
 }
 
-.container .banner img {
-  height: 100%;
-  height: fit-content;
-}
-
 .right-column img {
   width: 70%;
+  /* height: auto;
+  display: block; */
 }
 
 #our-dealer .container {
@@ -258,14 +255,14 @@
   text-align: center;
 }
 
-  #products-section .container a {
+#products-section .container a {
   font-size: 20px;
   text-decoration: none;
   color: black;
 }
 
 #products-section {
-  margin-bottom: 48px;
+  margin: 0 48px;
 }
 
 #search {
@@ -330,7 +327,9 @@
   flex-direction: column;
   width: 220px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   cursor: pointer;
 }
 
@@ -378,7 +377,9 @@
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 #cart-btn:hover {
@@ -484,6 +485,14 @@
 
   .right-column img {
     width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .container .banner img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 
   /* Our Dealer */

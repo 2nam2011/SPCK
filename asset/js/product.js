@@ -61,7 +61,7 @@ export async function renderProductDetails(id) {
   let product_id = new URLSearchParams(window.location.search).get("id");
   // tim san pham trong danh sach dua tren id
   let productHtml = `<div><p>No product found.</p></div>`;
-  let products = await fetchData();
+  let products = await fetchData("products");
   let product = null;
   products.forEach((p) => {
     if (p.id == product_id) {
@@ -72,7 +72,7 @@ export async function renderProductDetails(id) {
     productHtml = `
          <div class="detail-gallery">
           <img
-            src="${product.image}"
+            src="../asset/image/${product.image}"
             alt="Chi tiết sản phẩm"
           />
          </div>
@@ -93,10 +93,10 @@ export async function renderProductDetails(id) {
             <button class="btn btn-primary" style="flex: 1">
               Add to cart
             </button>
-         </div>
             <a href="payment.html?id=${product.id}">
-               <button class="btn btn-outline" style="width: 100%">Buy now</button>
+               <button class="btn btn-outline" style="flex: 1">Buy now</button>
             </a>
+          </div>
           <div
             style="
               margin-top: 30px;
@@ -123,7 +123,7 @@ export async function renderProductPayment(id) {
   let product_id = new URLSearchParams(window.location.search).get("id");
   // tim san pham trong danh sach dua tren id
   let productHtml = `<div><p>No product found.</p></div>`;
-  let products = await fetchData();
+  let products = await fetchData("products");
   let product = null;
   products.forEach((p) => {
     if (p.id == product_id) {
@@ -133,7 +133,7 @@ export async function renderProductPayment(id) {
   if (product != null) {
     productHtml = `
         <div id="payment-info">
-            <img src="${product.image}" alt="This is an image product." width="300px">
+            <img src="../asset/image/${product.image}" alt="This is an image product." width="300px">
           <div class="info">
                 <p><strong>Name:</strong> ${product.name}</p>
                 <p><strong>Price:</strong> ${product.price}</p>
@@ -224,4 +224,6 @@ async function searchProducts() {
   }
 }
 
-SearchBtn.addEventListener("click", searchProducts);
+if (SearchBtn) {
+  SearchBtn.addEventListener("click", searchProducts);
+}

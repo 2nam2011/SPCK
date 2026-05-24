@@ -10,6 +10,63 @@ import { app } from "./firebase_config.js";
 
 const db = getFirestore(app);
 
+export async function loadCart(uid) {
+  const docRef = doc(db, "carts", uid);
+  const docSnap = await getDoc(docRef);
+
+  if (docSnap.exists()) {
+    const cart = docSnap.data();
+    console.log("Cart:", cart);
+
+    renderCart(cart.items);
+  } else {
+    console.log("Chưa có giỏ hàng");
+  }
+}
+
+export async function renderCart(items) {
+  const container = document.getElementById("cart");
+  const totalEl = document.getElementById("total");
+  let total = 0;
+  container.innerHTML = `
+    <div class="cart-header">
+      <span>Product</span>
+      <span>Price</span>
+      <span>Quantity</span>
+      <span>Remove</span>
+    </div>
+    `;
+  for (const item of items) {
+    const productRef = doc(db, "products", item.productId);
+    const productSnap = await getDoc(productRef);
+    if (!productSnap.exists()) continue;
+    const p = productSnap.data();
+    total += p.price * item.quantity;
+    const div = document.createElement("div");
+    div.className = "cart-row";
+    div.innerHTML = `
+        <div class="cart-product">
+          <img src="../asset/image/${p.image}"/>
+          <div>
+            <h4>${p.name}</h4>
+            <p>${p.description || ""}</p>
+          </div>
+        </div>
+        <div class="cart-price">$${p.price}</div>
+        <div class="cart-qty">
+          <button onclick="decrease('${item.productId}')">-</button>
+          <span>${item.quantity}</span>
+          <button onclick="increase('${item.productId}')">+</button>
+        </div>
+        <div class="cart-remove">
+          <button onclick="removeItem('${item.productId}')">🗑️</button>
+        </div>
+        `;
+    container.appendChild(div);
+  }
+  totalEl.textContent = "Tổng: $" + total.toFixed(2);
+}
+
 export async function addToCart(productId) {
   const user = getCurrentUser();
 
@@ -71,3 +128,27 @@ export async function addToCart(productId) {
     alert("Có lỗi xảy ra!");
   }
 }
+
+export async function removeItem(productId) {
+  const user = getCurrentUser();
+  if (!user) {
+    alert("Vui lòng đăng nhập!");
+    return;
+  }
+
+  const cartRef = doc(db, "carts", user.uid); // Lay gio hang cua user
+  const docSnap = await getDoc(cartRef); //Lay du lieu gio hang tren firestore thong qua CartRef
+  if (!docSnap.exists()) return;
+
+  let items = docSnap.data().items || [];
+  //filter: dung de bo cac phan tu neu kh dung dk
+  items = items.filter((item) => item.productId !== productId);
+
+  // Ghi lai len Firestore
+  await setDoc(cartRef, { items });
+
+  // Render lai gio hang
+  renderCart(items);
+}
+
+window.removeItem = removeItem;
