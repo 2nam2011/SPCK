@@ -1,111 +1,714 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta
-         name="description"
-         content="Danh sách sản phẩm với thiết kế product-card."
-      />
-      <title>Danh sách sản phẩm</title>
-      <style>
-         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-         }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Venture Past Our Sky</title>
 
-         body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-         }
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
 
-         h1 {
-            text-align: center;
-            margin: 20px 0;
-         }
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              heading: ['"Instrument Serif"', "serif"],
+              body: ['"Barlow"', "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "9999px",
+            },
+          },
+        },
+      };
+    </script>
 
-         .product-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-         }
+    <!-- Liquid Glass Utilities -->
+    <style>
+      body {
+        background-color: #000;
+        margin: 0;
+        -webkit-font-smoothing: antialiased;
+      }
 
-         .product-card {
-            background-color: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-         }
+      .liquid-glass {
+        background: rgba(255, 255, 255, 0.01);
+        background-blend-mode: luminosity;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border: none;
+        box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
 
-         .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-         }
+      .liquid-glass::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 1.4px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.45) 0%,
+          rgba(255, 255, 255, 0.15) 20%,
+          rgba(255, 255, 255, 0) 40%,
+          rgba(255, 255, 255, 0) 60%,
+          rgba(255, 255, 255, 0.15) 80%,
+          rgba(255, 255, 255, 0.45) 100%
+        );
+        -webkit-mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+      }
 
-         .product-card img {
-            width: 100%;
-            aspect-ratio: 4/3;
-            object-fit: cover;
-         }
+      .liquid-glass-strong {
+        background: rgba(255, 255, 255, 0.01);
+        background-blend-mode: luminosity;
+        backdrop-filter: blur(50px);
+        -webkit-backdrop-filter: blur(50px);
+        border: none;
+        box-shadow:
+          4px 4px 4px rgba(0, 0, 0, 0.05),
+          inset 0 1px 1px rgba(255, 255, 255, 0.15);
+        position: relative;
+        overflow: hidden;
+      }
 
-         .product-card-content {
-            padding: 16px;
-         }
+      .liquid-glass-strong::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 1.4px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.5) 0%,
+          rgba(255, 255, 255, 0.2) 20%,
+          rgba(255, 255, 255, 0) 40%,
+          rgba(255, 255, 255, 0) 60%,
+          rgba(255, 255, 255, 0.2) 80%,
+          rgba(255, 255, 255, 0.5) 100%
+        );
+        -webkit-mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+      }
+    </style>
 
-         .product-card h2 {
-            font-size: 20px;
-            margin-bottom: 10px;
-         }
+    <!-- React & DOM -->
+    <script
+      src="https://unpkg.com/react@18.3.1/umd/react.development.js"
+      integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"
+      integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm"
+      crossorigin="anonymous"
+    ></script>
 
-         .product-card p {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 10px;
-         }
+    <!-- Babel -->
+    <script
+      src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"
+      integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y"
+      crossorigin="anonymous"
+    ></script>
 
-         .product-card .price {
-            font-size: 18px;
-            font-weight: bold;
-            color: #2196f3;
-            margin-bottom: 20px;
-         }
+    <!-- Framer Motion -->
+    <script src="https://unpkg.com/framer-motion@11.11.17/dist/framer-motion.js"></script>
+    <script>
+      window.Motion = window.FramerMotion;
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
 
-         .product-card button {
-            background-color: #2196f3;
-            color: #fff;
-            border: none;
-            padding: 10px 16px;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            width: 100%;
-            text-align: center;
-         }
+    <script type="text/babel">
+      const { useState, useEffect, useRef } = React;
 
-         .product-card button:hover {
-            background-color: #1976d2;
-         }
-      </style>
-   </head>
-   <body>
-      <h1>Danh sách sản phẩm</h1>
-      <div class="product-list" id="product-list">
-         
-      </div>
+      // Fallback implementation of motion proxy to prevent any crash if the CDN is slow or fails
+      const motionFallback = new Proxy(
+        {},
+        {
+          get(target, prop) {
+            return React.forwardRef(
+              (
+                {
+                  children,
+                  initial,
+                  animate,
+                  transition,
+                  whileHover,
+                  whileTap,
+                  whileInView,
+                  viewport,
+                  ...rest
+                },
+                ref,
+              ) => {
+                const Tag = prop;
+                return (
+                  <Tag ref={ref} {...rest}>
+                    {children}
+                  </Tag>
+                );
+              },
+            );
+          },
+        },
+      );
 
-      <script type = "module" scr="../asset/js/product.js"></script>
-      <script type="module">
-         import {renderProduct} from "../asset/js/product.js";
+      // Fallback IntersectionObserver hook for useInView if Framer Motion is unavailable
+      const useInViewFallback = (ref, options) => {
+        const [isInView, setIsInView] = useState(false);
+        useEffect(() => {
+          if (!ref.current) return;
+          const observer = new IntersectionObserver(
+            ([entry]) => {
+              setIsInView(entry.isIntersecting);
+            },
+            { threshold: options?.amount || 0.1 },
+          );
+          observer.observe(ref.current);
+          return () => observer.disconnect();
+        }, [ref, options?.amount]);
+        return isInView;
+      };
 
-         renderProduct("product-list");
-      </script>
-   </body>
+      // Resilient Framer Motion resolver scanning both Standard and UMD targets
+      const resolveFramerMotion = () => {
+        const targets = [
+          window.Motion,
+          window.FramerMotion,
+          window.framerMotion,
+        ];
+        for (const target of targets) {
+          if (target && typeof target === "object") {
+            if (target.motion) {
+              return target;
+            }
+            if (typeof target === "function" || target.div) {
+              return {
+                motion: target,
+                useInView: target.useInView || useInViewFallback,
+              };
+            }
+          }
+        }
+        return null;
+      };
+
+      const resolvedFM = resolveFramerMotion();
+      const motion = resolvedFM?.motion || motionFallback;
+      const useInView = resolvedFM?.useInView || useInViewFallback;
+
+      // Suppress benign Framer Motion dev warnings about list keys if they occur internally
+      const originalError = console.error;
+      console.error = (...args) => {
+        if (
+          typeof args[0] === "string" &&
+          args[0].includes(
+            'Each child in a list should have a unique "key" prop',
+          )
+        )
+          return;
+        originalError(...args);
+      };
+
+      const ArrowUpRight = ({ className = "h-5 w-5", strokeWidth = 2 }) => (
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={strokeWidth}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className={className}
+        >
+          <path d="M7 17L17 7" />
+          <path d="M7 7h10v10" />
+        </svg>
+      );
+
+      const Play = ({ className = "h-4 w-4" }) => (
+        <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+          <polygon points="6,4 20,12 6,20 6,4" />
+        </svg>
+      );
+
+      const ClockOutline = ({ className = "w-[28px] h-[28px]" }) => (
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className={className}
+        >
+          <circle cx="12" cy="12" r="10" />
+          <polyline points="12 6 12 12 16 14" />
+        </svg>
+      );
+
+      const GlobeOutline = ({ className = "w-[28px] h-[28px]" }) => (
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className={className}
+        >
+          <circle cx="12" cy="12" r="10" />
+          <line x1="2" y1="12" x2="22" y2="12" />
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+        </svg>
+      );
+
+      const ImageIcon = ({ className = "w-6 h-6" }) => (
+        <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+          <path d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h14q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21H5Zm1-4h12l-3.75-5-3 4L9 13l-3 4Z" />
+        </svg>
+      );
+
+      const MovieIcon = ({ className = "w-6 h-6" }) => (
+        <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+          <path d="M4 6.47 5.76 10H20v8H4V6.47M22 4h-4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.89-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4Z" />
+        </svg>
+      );
+
+      const LightbulbIcon = ({ className = "w-6 h-6" }) => (
+        <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+          <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1Zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7Z" />
+        </svg>
+      );
+
+      const FadingVideo = ({ src, className, style }) => {
+        const videoRef = useRef(null);
+        const fadingOutRef = useRef(false);
+        const rafIdRef = useRef(null);
+        const FADE_MS = 500;
+        const FADE_OUT_LEAD = 0.55;
+
+        const fadeTo = (targetOpacity, durationMs = FADE_MS) => {
+          const video = videoRef.current;
+          if (!video) return;
+
+          if (rafIdRef.current) {
+            cancelAnimationFrame(rafIdRef.current);
+          }
+
+          const startOpacity = parseFloat(video.style.opacity) || 0;
+          const startTime = performance.now();
+
+          const animate = (time) => {
+            const elapsed = time - startTime;
+            const progress = Math.min(elapsed / durationMs, 1);
+            const currentOpacity =
+              startOpacity + (targetOpacity - startOpacity) * progress;
+
+            video.style.opacity = currentOpacity;
+
+            if (progress < 1) {
+              rafIdRef.current = requestAnimationFrame(animate);
+            }
+          };
+          rafIdRef.current = requestAnimationFrame(animate);
+        };
+
+        const handleLoadedData = () => {
+          const video = videoRef.current;
+          if (video) {
+            video.style.opacity = 0;
+            video.play().catch((e) => console.warn("Auto-play blocked:", e));
+            fadeTo(1);
+          }
+        };
+
+        const handleTimeUpdate = () => {
+          const video = videoRef.current;
+          if (!video) return;
+
+          const timeLeft = video.duration - video.currentTime;
+          if (
+            !fadingOutRef.current &&
+            timeLeft <= FADE_OUT_LEAD &&
+            timeLeft > 0
+          ) {
+            fadingOutRef.current = true;
+            fadeTo(0);
+          }
+        };
+
+        const handleEnded = () => {
+          const video = videoRef.current;
+          if (!video) return;
+
+          video.style.opacity = 0;
+          setTimeout(() => {
+            video.currentTime = 0;
+            video.play().catch((e) => console.warn("Auto-play blocked:", e));
+            fadingOutRef.current = false;
+            fadeTo(1);
+          }, 100);
+        };
+
+        useEffect(() => {
+          return () => {
+            if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current);
+          };
+        }, []);
+
+        return (
+          <video
+            ref={videoRef}
+            src={src}
+            className={className}
+            style={{ ...style, opacity: 0 }}
+            autoPlay
+            muted
+            playsInline
+            preload="auto"
+            onLoadedData={handleLoadedData}
+            onTimeUpdate={handleTimeUpdate}
+            onEnded={handleEnded}
+          />
+        );
+      };
+
+      const BlurText = ({ text, className }) => {
+        const ref = useRef(null);
+        const isInView = useInView(ref, { once: true, amount: 0.1 });
+        const words = text.split(" ");
+
+        return (
+          <p
+            ref={ref}
+            className={`${className}`}
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              rowGap: "0.1em",
+            }}
+          >
+            {words.map((word, i) => (
+              <motion.span
+                key={i}
+                initial={{ filter: "blur(10px)", opacity: 0, y: 50 }}
+                animate={
+                  isInView
+                    ? {
+                        filter: ["blur(10px)", "blur(5px)", "blur(0px)"],
+                        opacity: [0, 0.5, 1],
+                        y: [50, -5, 0],
+                      }
+                    : {}
+                }
+                transition={{
+                  duration: 0.7,
+                  times: [0, 0.5, 1],
+                  ease: "easeOut",
+                  delay: (i * 100) / 1000,
+                }}
+                style={{ display: "inline-block", marginRight: "0.28em" }}
+              >
+                {word}
+              </motion.span>
+            ))}
+          </p>
+        );
+      };
+
+      const Navbar = () => (
+        <nav className="fixed top-4 left-0 right-0 px-8 lg:px-16 z-50 flex items-center justify-between">
+          <div className="w-12 h-12 liquid-glass flex items-center justify-center rounded-full">
+            <span className="font-heading italic text-white text-3xl lowercase leading-none pb-1">
+              a
+            </span>
+          </div>
+
+          <div className="hidden md:flex liquid-glass px-1.5 py-1.5 rounded-full items-center">
+            {["Home", "Voyages", "Worlds", "Innovation", "Plan Launch"].map(
+              (link) => (
+                <a
+                  key={link}
+                  href="#"
+                  className="px-3 py-2 text-sm font-medium text-white/90 font-body hover:text-white transition-colors"
+                >
+                  {link}
+                </a>
+              ),
+            )}
+            <button className="bg-white text-black px-4 py-2 rounded-full text-sm font-medium font-body flex items-center gap-1 ml-1 whitespace-nowrap hover:bg-white/90 transition-colors">
+              Claim a Spot
+              <ArrowUpRight className="h-4 w-4" />
+            </button>
+          </div>
+
+          <div className="w-12 h-12 pointer-events-none"></div>
+        </nav>
+      );
+
+      const Hero = () => {
+        return (
+          <section className="relative min-h-screen flex flex-col overflow-hidden bg-black">
+            <div className="absolute inset-0 overflow-hidden z-0">
+              <FadingVideo
+                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_080021_d598092b-c4c2-4e53-8e46-94cf9064cd50.mp4"
+                className="absolute left-1/2 top-0 -translate-x-1/2 object-cover object-top"
+                style={{ width: "120%", height: "120%" }}
+              />
+            </div>
+
+            <div className="relative z-10 flex-1 flex flex-col pt-24 px-4 w-full max-w-[1400px] mx-auto">
+              <div className="flex-1 flex flex-col items-center justify-center w-full">
+                <motion.div
+                  initial={{ filter: "blur(10px)", opacity: 0, y: 20 }}
+                  animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, ease: "easeOut", duration: 0.8 }}
+                  className="liquid-glass rounded-full flex items-center p-1 pr-3 mb-8"
+                >
+                  <span className="bg-white text-black px-3 py-1 text-xs font-semibold rounded-full mr-3">
+                    New
+                  </span>
+                  <span className="text-sm text-white/90 font-body">
+                    Maiden Crewed Voyage to Mars Arrives 2026
+                  </span>
+                </motion.div>
+
+                <BlurText
+                  text="Venture Past Our Sky Across the Universe"
+                  className="text-6xl md:text-7xl lg:text-[5.5rem] font-heading italic text-white leading-[0.8] max-w-2xl tracking-[-4px] text-center"
+                />
+
+                <motion.p
+                  initial={{ filter: "blur(10px)", opacity: 0, y: 20 }}
+                  animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+                  transition={{ delay: 0.8, ease: "easeOut", duration: 0.8 }}
+                  className="mt-4 text-sm md:text-base text-white max-w-2xl font-body font-light leading-tight text-center"
+                >
+                  Discover the universe in ways once unimaginable. Our
+                  pioneering vessels and breakthrough engineering bring
+                  deep-space exploration within reach—secure and extraordinary.
+                </motion.p>
+
+                <motion.div
+                  initial={{ filter: "blur(10px)", opacity: 0, y: 20 }}
+                  animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+                  transition={{ delay: 1.1, ease: "easeOut", duration: 0.8 }}
+                  className="flex items-center gap-6 mt-6"
+                >
+                  <button className="liquid-glass-strong rounded-full px-5 py-2.5 text-sm font-medium text-white flex items-center gap-1.5 font-body hover:scale-105 transition-transform duration-300">
+                    Start Your Voyage
+                    <ArrowUpRight className="h-5 w-5" />
+                  </button>
+                  <button className="text-white text-sm font-medium font-body flex items-center gap-2 hover:opacity-80 transition-opacity">
+                    View Liftoff
+                    <Play />
+                  </button>
+                </motion.div>
+
+                <motion.div
+                  initial={{ filter: "blur(10px)", opacity: 0, y: 20 }}
+                  animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+                  transition={{ delay: 1.3, ease: "easeOut", duration: 0.8 }}
+                  className="flex flex-wrap justify-center items-stretch gap-4 mt-8"
+                >
+                  <div className="liquid-glass rounded-[1.25rem] p-5 w-[220px] flex flex-col justify-between">
+                    <ClockOutline className="text-white mb-8" />
+                    <div>
+                      <div className="font-heading italic text-white text-4xl tracking-[-1px] leading-none">
+                        34.5 Min
+                      </div>
+                      <div className="text-xs text-white font-body font-light mt-2">
+                        Average Videos Watch Time
+                      </div>
+                    </div>
+                  </div>
+                  <div className="liquid-glass rounded-[1.25rem] p-5 w-[220px] flex flex-col justify-between">
+                    <GlobeOutline className="text-white mb-8" />
+                    <div>
+                      <div className="font-heading italic text-white text-4xl tracking-[-1px] leading-none">
+                        2.8B+
+                      </div>
+                      <div className="text-xs text-white font-body font-light mt-2">
+                        Users Across the Globe
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+
+              <motion.div
+                initial={{ filter: "blur(10px)", opacity: 0, y: 20 }}
+                animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+                transition={{ delay: 1.4, ease: "easeOut", duration: 0.8 }}
+                className="flex flex-col items-center gap-4 pb-8 mt-12"
+              >
+                <div className="liquid-glass rounded-full px-3.5 py-1 text-xs font-medium text-white font-body">
+                  Collaborating with top aerospace pioneers globally
+                </div>
+                <div className="flex flex-wrap justify-center gap-12 md:gap-16 items-center">
+                  {["Aeon", "Vela", "Apex", "Orbit", "Zeno"].map((partner) => (
+                    <span
+                      key={partner}
+                      className="font-heading italic text-white text-2xl md:text-3xl tracking-tight"
+                    >
+                      {partner}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+          </section>
+        );
+      };
+
+      const Capabilities = () => {
+        const cards = [
+          {
+            icon: <ImageIcon />,
+            tags: [
+              "Natural Context",
+              "Photo Realism",
+              "Infinite Settings",
+              "Eco-Vibe",
+            ],
+            title: "AI Scenery",
+            body: "AI analyzes your product to create indistinguishable natural environments — from Icelandic cliffs to misty forests.",
+          },
+          {
+            icon: <MovieIcon />,
+            tags: [
+              "Scale Fast",
+              "Visual Consistency",
+              "Time Saver",
+              "Ready to Post",
+            ],
+            title: "Batch Production",
+            body: "Style your entire product line in minutes. Create a unified visual identity for catalogues and social media without weeks of retouching.",
+          },
+          {
+            icon: <LightbulbIcon />,
+            tags: [
+              "Ray Tracing",
+              "Physical Shadows",
+              "Studio Quality",
+              "Sunlight Sync",
+            ],
+            title: "Smart Lighting",
+            body: "Automatic lighting and material adjustment. Achieve flawless integration with realistic shadows and sunlight.",
+          },
+        ];
+
+        return (
+          <section className="relative min-h-screen bg-black">
+            <div className="absolute inset-0 z-0">
+              <FadingVideo
+                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_094631_d30ab262-45ee-4b7d-99f3-5d5848c8ef13.mp4"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+
+            <div className="relative z-10 px-8 md:px-16 lg:px-20 pt-24 pb-10 flex flex-col min-h-screen max-w-[1600px] mx-auto">
+              <div className="mb-auto">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="text-sm font-body text-white/80 mb-6"
+                >
+                  // Capabilities
+                </motion.div>
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  className="font-heading italic text-white text-6xl md:text-7xl lg:text-[6rem] leading-[0.9] tracking-[-3px]"
+                >
+                  Production
+                  <br />
+                  evolved
+                </motion.h2>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-16">
+                {cards.map((card, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ delay: 0.2 + idx * 0.1 }}
+                    className="liquid-glass rounded-[1.25rem] p-6 min-h-[360px] flex flex-col"
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="w-[44px] h-[44px] liquid-glass rounded-[0.75rem] flex items-center justify-center text-white flex-shrink-0">
+                        {card.icon}
+                      </div>
+                      <div className="flex flex-wrap justify-end gap-1.5 max-w-[80%]">
+                        {card.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="liquid-glass rounded-full px-3 py-1 text-[11px] text-white/90 font-body whitespace-nowrap"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="flex-1 spacer"></div>
+
+                    <div className="mt-6">
+                      <h3 className="font-heading italic text-white text-3xl md:text-4xl tracking-[-1px] leading-none">
+                        {card.title}
+                      </h3>
+                      <p className="mt-3 text-sm text-white/90 font-body font-light leading-snug max-w-[32ch]">
+                        {card.body}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      };
+
+      const App = () => {
+        return (
+          <div className="bg-black text-white min-h-screen font-body selection:bg-white/30">
+            <Navbar />
+            <main>
+              <Hero />
+              <Capabilities />
+            </main>
+          </div>
+        );
+      };
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
 </html>

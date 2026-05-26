@@ -39,7 +39,7 @@ export async function renderProduct(id) {
                <div class="products-info">
                <h3 class="products-name">${p.name}</h3>
                <p class="products-discription">${p.description}</p>
-               <h2 class="products-price">${p.price}</h2>
+               <h2 class="products-price">$${p.price}</h2>
                </div>
                <a href="product-detail.html?id=${p.id}">
                   <button id="buy-btn">Buy Now</button>
@@ -78,9 +78,8 @@ export async function renderProductDetails(id) {
          </div>
 
          <div class="detail-info">
-          <span class="product-category">${product.category}</span>
           <h1>${product.name}</h1>
-          <span class="detail-price">${product.price}</span>
+          <span class="detail-price">$${product.price}</span>
 
           <p class="detail-desc">${product.description}</p>
 
@@ -104,7 +103,6 @@ export async function renderProductDetails(id) {
               padding-top: 20px;
             "
           >
-
             <p>🚚 <strong>Free shipping</strong> for orders over 500k VND.</p>
             <p style="margin-top: 10px">🛡️ 30-day <strong>1-to-1 replacement warranty.</strong></p>
           </div>
@@ -136,7 +134,7 @@ export async function renderProductPayment(id) {
             <img src="../asset/image/${product.image}" alt="This is an image product." width="300px">
           <div class="info">
                 <p><strong>Name:</strong> ${product.name}</p>
-                <p><strong>Price:</strong> ${product.price}</p>
+                <p><strong>Price:</strong> $${product.price}</p>
                 <p><strong>Stock:</strong> ${product.stock}</p>
                 <label for="num-of-product"> <strong>Number of products:</strong></label>
                 <input type="text" name="num-of-product" id="num-of-product">
@@ -188,7 +186,7 @@ export async function renderSearchedProducts(products) {
                <div class="products-info">
                <h3 class="products-name">${p.name}</h3>
                <p class="products-discription">${p.description}</p>
-               <h2 class="products-price">${p.price}</h2>
+               <h2 class="products-price">$${p.price}</h2>
                </div>
                <a href="product-detail.html?id=${p.id}">
                   <button>Buy Now</button>
@@ -226,4 +224,129 @@ async function searchProducts() {
 
 if (SearchBtn) {
   SearchBtn.addEventListener("click", searchProducts);
+}
+
+export async function renderProductSlider(id) {
+  let sliderContainer = document.getElementById(id);
+  let products = await fetchData("products");
+
+  let sliderHtml = `
+    <div class="slider-wrapper">
+      <button class="slider-arrow slider-prev" onclick="sliderPrev()">&#10094;</button>
+      <div class="slider-container">
+        <div class="slider-content" id="slider-content">
+  `;
+
+  // Clone 4 sản phẩm cuối cùng vào đầu
+  const lastFour = products.slice(products.length - 4); // slice(products.length - 4): lấy 4 phần tử cuối
+  lastFour.forEach((p) => {
+    sliderHtml += `
+      <div class="slider-item">
+        <div class="products-card">
+          <img src="../asset/image/${p.image}" alt="" class="products-img" />
+          <div class="products-info">
+            <h3 class="products-name">${p.name}</h3>
+            <p class="products-discription">${p.description}</p>
+            <h2 class="products-price">$${p.price}</h2>
+          </div>
+          <a href="product-detail.html?id=${p.id}">
+            <button id="buy-btn">Buy Now</button>
+          </a>
+          <button id="cart-btn" onclick="addToCart('${p.id}')">Add to cart</button>
+        </div>
+      </div>
+    `;
+  });
+
+  // Thêm tất cả sản phẩm
+  products.forEach((p) => {
+    sliderHtml += `
+      <div class="slider-item">
+        <div class="products-card">
+          <img src="../asset/image/${p.image}" alt="" class="products-img" />
+          <div class="products-info">
+            <h3 class="products-name">${p.name}</h3>
+            <p class="products-discription">${p.description}</p>
+            <h2 class="products-price">${p.price}</h2>
+          </div>
+          <a href="product-detail.html?id=${p.id}">
+            <button id="buy-btn">Buy Now</button>
+          </a>
+          <button id="cart-btn" onclick="addToCart('${p.id}')">Add to cart</button>
+        </div>
+      </div>
+    `;
+  });
+
+  // Clone 4 sản phẩm đầu tiên vào cuối
+  const firstFour = products.slice(0, 4);
+  firstFour.forEach((p) => {
+    sliderHtml += `
+      <div class="slider-item">
+        <div class="products-card">
+          <img src="../asset/image/${p.image}" alt="" class="products-img" />
+          <div class="products-info">
+            <h3 class="products-name">${p.name}</h3>
+            <p class="products-discription">${p.description}</p>
+            <h2 class="products-price">${p.price}</h2>
+          </div>
+          <a href="product-detail.html?id=${p.id}">
+            <button id="buy-btn">Buy Now</button>
+          </a>
+          <button id="cart-btn" onclick="addToCart('${p.id}')">Add to cart</button>
+        </div>
+      </div>
+    `;
+  });
+
+  sliderHtml += `
+        </div>
+      </div>
+      <button class="slider-arrow slider-next" onclick="sliderNext()">&#10095;</button>
+    </div>
+  `;
+
+  sliderContainer.innerHTML = sliderHtml;
+  window.totalSliderItems = products.length;
+  window.currentSlide = 4; // Bắt đầu từ sản phẩm thực sự đầu tiên
+
+  // Set initial position
+  const slider = document.getElementById("slider-content");
+  slider.style.transform = `translateX(-100%)`;
+}
+
+window.sliderNext = function () {
+  window.currentSlide++;
+  updateSlider();
+};
+
+window.sliderPrev = function () {
+  window.currentSlide--;
+  updateSlider();
+};
+
+function updateSlider() {
+  const slider = document.getElementById("slider-content");
+  const offset = -window.currentSlide * 25;
+
+  slider.style.transition = "transform 0.5s ease";
+  slider.style.transform = `translateX(${offset}%)`;
+
+  // Khi đến cuối clone, jump về vị trí thực sự
+  if (window.currentSlide === window.totalSliderItems + 4) {
+    setTimeout(() => {
+      slider.style.transition = "none";
+      window.currentSlide = 4;
+      slider.style.transform = `translateX(-100%)`;
+    }, 500);
+  }
+
+  // Khi đến đầu clone, jump về vị trí thực sự
+  if (window.currentSlide === 3) {
+    setTimeout(() => {
+      slider.style.transition = "none";
+      window.currentSlide = window.totalSliderItems + 3;
+      slider.style.transform = `translateX(${-window.currentSlide * 25}%)`;
+    }, 500);
+  }
 }
