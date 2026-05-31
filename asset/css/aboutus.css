@@ -52,13 +52,19 @@
   background-color: rgb(125, 64, 18);
   color: white;
   padding: 10px 20px;
-  border-radius: 6px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(125, 64, 18, 0.2);
 }
 
 #login-btn:hover {
   background-color: rgb(194, 119, 13);
+  box-shadow: 0 4px 12px rgba(125, 64, 18, 0.4);
+  transform: translateY(-2px);
 }
 
 #nav-logout-btn {
@@ -123,14 +129,21 @@
 
 .hero-button button {
   color: white;
-  padding: 12px 24px;
-  border: none;
+  padding: 12px 28px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
 }
 
 .hero-button button:hover {
   background-color: white;
-  color: black;
-  border: 1px solid black;
+  color: rgb(125, 64, 18);
+  border: 2px solid rgb(125, 64, 18);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
 
 .secondary-btn {
@@ -138,8 +151,8 @@
 }
 
 .primary-btn {
-  background-color: black;
-  color: black;
+  background-color: rgb(125, 64, 18);
+  color: white;
 }
 
 .container .banner img {
@@ -178,18 +191,48 @@
 .left-column button {
   width: 128px;
   height: 48px;
+  background-color: rgb(125, 64, 18);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(125, 64, 18, 0.2);
+  font-size: 14px;
+}
+
+.left-column button:hover {
+  background-color: rgb(194, 119, 13);
+  box-shadow: 0 4px 16px rgba(125, 64, 18, 0.4);
+  transform: translateY(-2px);
+}
+
+.left-column button:active {
+  transform: translateY(0);
 }
 
 .btn {
-  background-color: #c0aa83;
+  background-color: rgb(125, 64, 18);
   color: white;
   border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(125, 64, 18, 0.2);
+  font-size: 14px;
+  padding: 10px 20px;
 }
 
 .btn:hover {
-  background-color: white;
-  color: black;
-  border: 1px solid black;
+  background-color: rgb(194, 119, 13);
+  box-shadow: 0 4px 16px rgba(125, 64, 18, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
 }
 
 #our-clients-say {

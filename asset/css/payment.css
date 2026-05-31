@@ -49,13 +49,19 @@
   background-color: rgb(125, 64, 18);
   color: white;
   padding: 10px 20px;
-  border-radius: 6px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(125, 64, 18, 0.2);
 }
 
 #login-btn:hover {
   background-color: rgb(194, 119, 13);
+  box-shadow: 0 4px 12px rgba(125, 64, 18, 0.4);
+  transform: translateY(-2px);
 }
 
 #nav-logout-btn {
@@ -82,8 +88,10 @@
     width: fit-content;
     margin: auto;
     padding: 40px;
-    border-radius: 20px;
-    border: solid 2px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.09);
+    background-color: white;
 }
 
 .info {
@@ -95,9 +103,25 @@
     margin: auto;
     width: 200px;
     height: 40px;
-    border-radius: 10px;
-    background-color: #c0aa83;
+    border-radius: 8px;
+    background-color: rgb(125, 64, 18);
     color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(125, 64, 18, 0.2);
+    font-size: 14px;
+}
+
+.info button:hover {
+    background-color: rgb(194, 119, 13);
+    box-shadow: 0 4px 16px rgba(125, 64, 18, 0.4);
+    transform: translateY(-2px);
+}
+
+.info button:active {
+    transform: translateY(0);
 }
 
 #footer {

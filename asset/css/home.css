@@ -53,26 +53,38 @@
   background-color: rgb(125, 64, 18);
   color: white;
   padding: 10px 20px;
-  border-radius: 6px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(125, 64, 18, 0.2);
 }
 
 #login-btn:hover {
   background-color: rgb(194, 119, 13);
+  box-shadow: 0 4px 12px rgba(125, 64, 18, 0.4);
+  transform: translateY(-2px);
 }
 
 #nav-logout-btn {
   background-color: rgb(125, 64, 18);
   color: white;
   padding: 10px 20px;
-  border-radius: 6px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(125, 64, 18, 0.2);
 }
 
 #nav-logout-btn:hover {
   background-color: rgb(194, 119, 13);
+  box-shadow: 0 4px 12px rgba(125, 64, 18, 0.4);
+  transform: translateY(-2px);
 }
 
 #content .container {
@@ -109,14 +121,26 @@
 
 .hero-button button {
   color: white;
-  padding: 12px 24px;
-  border: none;
+  padding: 12px 28px;
+  border: 2px solid transparent;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .hero-button button:hover {
   background-color: white;
   color: black;
-  border: 1px solid black;
+  border: 2px solid black;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.hero-button button:active {
+  transform: translateY(0);
 }
 
 .secondary-btn {

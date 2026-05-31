@@ -14,10 +14,6 @@
   position: sticky;
 }
 
-#content {
-  height: 500px;
-}
-
 .container {
   width: 1000px;
   margin: auto;
@@ -41,6 +37,7 @@
   justify-content: center;
   background-image: url(../image/Rectangle-27-copy-2.jpg);
   height: 200px;
+  margin-bottom: 40px;
 }
 
 #introduction .container span {
@@ -77,9 +74,19 @@
   background-color: rgb(125, 64, 18);
   color: white;
   padding: 10px 20px;
-  border-radius: 6px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(125, 64, 18, 0.2);
+}
+
+#login-btn:hover {
+  background-color: rgb(194, 119, 13);
+  box-shadow: 0 4px 12px rgba(125, 64, 18, 0.4);
+  transform: translateY(-2px);
 }
 
 #nav-logout-btn {
@@ -100,76 +107,6 @@
 .cart-container {
   width: 95%;
   margin: 10vh auto;
-}
-
-/* TABLE */
-
-.cart-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: white;
-}
-
-.cart-table th {
-  background: #bda67b;
-  color: white;
-  padding: 35px;
-  font-size: 24px;
-  font-weight: bold;
-  border: 1px solid #b49a6a;
-}
-
-.cart-table td {
-  border: 1px solid #ddd;
-  padding: 35px;
-  text-align: center;
-  vertical-align: middle;
-}
-
-/* REMOVE BUTTON */
-
-.remove {
-  color: red;
-  font-size: 32px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* PRODUCT INFO */
-
-.product-info {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.product-info img {
-  width: 70px;
-}
-
-.product-info span {
-  font-size: 20px;
-  font-weight: bold;
-  color: #222;
-}
-
-/* PRICE */
-
-.price,
-.subtotal {
-  font-size: 28px;
-  color: #b59b68;
-  font-weight: bold;
-}
-
-/* QUANTITY */
-
-.quantity-box input {
-  width: 80px;
-  height: 55px;
-  text-align: center;
-  font-size: 22px;
-  border: 1px solid #ddd;
 }
 
 /* BUTTON AREA */
@@ -346,6 +283,17 @@
   margin-top: 20px;
 }
 
+#product-section a {
+  text-decoration: none;
+  color: rgb(125, 64, 18);
+  transition: color 0.2s ease;
+  font-size: 18px;
+}
+
+#product-section a:hover {
+  color: rgb(194, 119, 13);
+}
+
 /* footer */
 #footer {
   background-image: url("../image/footer_map.png");
@@ -421,88 +369,6 @@
   color: #c0aa83;
 }
 
-#products-section .container {
-  background-color: #f6f6f6;
-  text-align: center;
-}
-
-#products-section .container h1 {
-  margin-bottom: 36px;
-  text-align: center;
-}
-
-#products-section .container a {
-  font-size: 20px;
-  text-decoration: none;
-  color: black;
-}
-
-#products-section {
-  margin-bottom: 48px;
-}
-
-.container #products-list {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.products-img {
-  height: 240px;
-}
-
-.products-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-}
-
-.products-card {
-  display: flex;
-  flex-direction: column;
-  margin: 5px 5px;
-  width: 20vw;
-}
-
-.products-card button {
-  margin: auto;
-  display: block;
-  margin-top: 20px;
-  padding: 12px 40px;
-  background-color: rgb(194, 119, 13);
-}
-
-.delivery-points .points {
-  display: flex;
-  flex-direction: row;
-  gap: 80px;
-}
-
-.delivery-points .points div h4 {
-  margin: 10px 0px;
-}
-
-.left-column button {
-  width: 128px;
-  height: 48px;
-}
-
-.btn {
-  background-color: #c0aa83;
-  color: white;
-  border: none;
-}
-
-.btn:hover {
-  background-color: white;
-  color: black;
-  border: 1px solid black;
-}
-
 /* ===== RESPONSIVE - ĐIỆN THOẠI ===== */
 @media (max-width: 768px) {
   .container {
@@ -528,46 +394,10 @@
     padding: 24px 16px;
   }
 
-  /* Cart Table - chuyển thành dạng block trên điện thoại */
+  /* Cart Container */
   .cart-container {
     width: 100%;
     margin: 4vh auto;
-    overflow-x: auto;
-  }
-
-  .cart-table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
-  .cart-table th,
-  .cart-table td {
-    padding: 16px 12px;
-    font-size: 14px;
-  }
-
-  .cart-table th {
-    font-size: 16px;
-  }
-
-  .product-info img {
-    width: 50px;
-  }
-
-  .product-info span {
-    font-size: 14px;
-  }
-
-  .price,
-  .subtotal {
-    font-size: 18px;
-  }
-
-  .quantity-box input {
-    width: 60px;
-    height: 40px;
-    font-size: 16px;
   }
 
   /* Cart Actions */

@@ -53,9 +53,23 @@
   background-color: rgb(125, 64, 18);
   color: white;
   padding: 10px 20px;
-  border-radius: 6px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(125, 64, 18, 0.2);
+}
+
+#login-btn:hover {
+  background-color: rgb(194, 119, 13);
+  box-shadow: 0 4px 12px rgba(125, 64, 18, 0.4);
+  transform: translateY(-2px);
+}
+
+#login-btn:active {
+  transform: translateY(0);
 }
 
 #content .container {
@@ -92,14 +106,21 @@
 
 .hero-button button {
   color: white;
-  padding: 12px 24px;
-  border: none;
+  padding: 12px 28px;
+  border: 2px solid transparent;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-radius: 6px;
 }
 
 .hero-button button:hover {
   background-color: white;
   color: black;
-  border: 1px solid black;
+  border: 2px solid black;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
 
 .secondary-btn {
@@ -161,11 +182,17 @@
 .copyright {
   padding: 20px 0;
   background-color: black;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .copyright p {
   color: white;
-  width: 100vw;
+  width: 100%;
   text-align: center;
 }
 
@@ -223,8 +250,26 @@
   margin: auto;
   display: block;
   margin-top: 20px;
-  padding: 12px 40px;
+  padding: 14px 40px;
   background-color: rgb(194, 119, 13);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(194, 119, 13, 0.3);
+}
+
+#buy-btn:hover {
+  background-color: rgb(220, 140, 20);
+  box-shadow: 0 4px 16px rgba(194, 119, 13, 0.4);
+  transform: translateY(-2px);
+}
+
+#buy-btn:active {
+  transform: translateY(0);
 }
 
 #cart-btn {
@@ -250,6 +295,20 @@
   background-color: #c0aa83;
   color: white;
   border: none;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(192, 170, 131, 0.3);
+}
+
+.btn:hover {
+  background-color: #d4c497;
+  box-shadow: 0 4px 16px rgba(192, 170, 131, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
 }
 
 /* ===== RESPONSIVE - ĐIỆN THOẠI ===== */
