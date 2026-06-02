@@ -5,7 +5,8 @@
 
 #header {
   padding: 12px 0;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+  box-shadow:
+    rgba(17, 17, 26, 0.05) 0px 4px 16px,
     rgba(17, 17, 26, 0.05) 0px 8px 32px;
   z-index: 10;
   position: sticky;
@@ -131,17 +132,18 @@
   color: white;
   padding: 12px 28px;
   border: 2px solid transparent;
-  border-radius: 8px;
-  cursor: pointer;
   font-weight: 600;
   font-size: 14px;
   transition: all 0.3s ease;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .hero-button button:hover {
   background-color: white;
-  color: rgb(125, 64, 18);
-  border: 2px solid rgb(125, 64, 18);
+  color: black;
+  border: 2px solid black;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
 }
@@ -151,8 +153,8 @@
 }
 
 .primary-btn {
-  background-color: rgb(125, 64, 18);
-  color: white;
+  background-color: black;
+  color: black;
 }
 
 .container .banner img {
@@ -174,7 +176,7 @@
   padding: 20px;
 }
 
-#description .container div{
+#description .container div {
   margin: 10px;
 }
 
@@ -191,48 +193,18 @@
 .left-column button {
   width: 128px;
   height: 48px;
-  background-color: rgb(125, 64, 18);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(125, 64, 18, 0.2);
-  font-size: 14px;
-}
-
-.left-column button:hover {
-  background-color: rgb(194, 119, 13);
-  box-shadow: 0 4px 16px rgba(125, 64, 18, 0.4);
-  transform: translateY(-2px);
-}
-
-.left-column button:active {
-  transform: translateY(0);
 }
 
 .btn {
-  background-color: rgb(125, 64, 18);
+  background-color: #c0aa83;
   color: white;
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(125, 64, 18, 0.2);
-  font-size: 14px;
-  padding: 10px 20px;
 }
 
 .btn:hover {
-  background-color: rgb(194, 119, 13);
-  box-shadow: 0 4px 16px rgba(125, 64, 18, 0.4);
-  transform: translateY(-2px);
-}
-
-.btn:active {
-  transform: translateY(0);
+  background-color: white;
+  color: black;
+  border: 1px solid black;
 }
 
 #our-clients-say {
@@ -310,24 +282,24 @@
   flex-direction: row;
 }
 
-#our-dealer .container .left-column{
+#our-dealer .container .left-column {
   width: 500px;
 }
 
-#our-dealer .container .left-column h1{
+#our-dealer .container .left-column h1 {
   font-size: 96px;
   color: #c0aa83;
 }
 
-#our-dealer .container .left-column h3{
+#our-dealer .container .left-column h3 {
   font-size: 40px;
 }
 
-#our-dealer .container .left-column h2{
+#our-dealer .container .left-column h2 {
   font-size: 32px;
 }
 
-#our-dealer .container .right-column{
+#our-dealer .container .right-column {
   width: 500px;
   display: flex;
   flex-direction: column;

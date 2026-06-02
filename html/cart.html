@@ -55,8 +55,6 @@
 
     <div id="product-section" style="margin-top: 40px">
       <div class="container">
-        <h1 style="text-align: left">Giỏ hàng</h1>
-
         <div id="cart"></div>
 
         <div
@@ -107,7 +105,15 @@
       import { app } from "../asset/js/firebase_config.js";
       import { loadCart } from "../asset/js/cart.js";
       import { initNav } from "../asset/js/nav.js";
-      initNav();
+      import { getCurrentUser } from "../asset/js/auth.js";
+
+      (async () => {
+        initNav();
+        const user = getCurrentUser();
+        if (user) {
+          await loadCart(user.uid);
+        }
+      })();
     </script>
   </body>
 </html>

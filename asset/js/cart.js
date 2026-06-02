@@ -27,8 +27,19 @@ export async function loadCart(uid) {
 export async function renderCart(items) {
   const container = document.getElementById("cart");
   const totalEl = document.getElementById("total");
-  let total = 0;
-  container.innerHTML = `
+
+  // Hiển thị loading
+  container.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+
+  const products = await Promise.all(
+    items.map(async (item) => {
+      const productRef = doc(db, "products", item.productId);
+      const productSnap = await getDoc(productRef);
+      return productSnap.exists() ? { item, data: productSnap.data() } : null;
+    })
+  );
+
+  let html = `
     <div class="cart-header">
       <span>Product</span>
       <span>Price</span>
@@ -36,15 +47,14 @@ export async function renderCart(items) {
       <span>Remove</span>
     </div>
     `;
-  for (const item of items) {
-    const productRef = doc(db, "products", item.productId);
-    const productSnap = await getDoc(productRef);
-    if (!productSnap.exists()) continue;
-    const p = productSnap.data();
+
+  let total = 0;
+  products.forEach((product) => {
+    if (!product) return;
+    const { item, data: p } = product;
     total += p.price * item.quantity;
-    const div = document.createElement("div");
-    div.className = "cart-row";
-    div.innerHTML = `
+    html += `
+      <div class="cart-row">
         <div class="cart-product">
           <img src="../asset/image/${p.image}"/>
           <div>
@@ -59,11 +69,13 @@ export async function renderCart(items) {
           <button onclick="increase('${item.productId}')">+</button>
         </div>
         <div class="cart-remove">
-          <button onclick="removeItem('${item.productId}')">🗑️</button>
+          <button onclick="removeItem('${item.productId}')"><img src="../asset/image/remove_icon.png" alt="remove icon" /></button>
         </div>
-        `;
-    container.appendChild(div);
-  }
+      </div>
+      `;
+  });
+
+  container.innerHTML = html;
   totalEl.textContent = "Tổng: $" + total.toFixed(2);
 }
 
