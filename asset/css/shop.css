@@ -1,6 +1,8 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
 #header {
@@ -16,8 +18,97 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 12px;
+  padding: 36px 20px 20px;
+  margin-bottom: 0;
+}
+
+/* Search wrapper (input + icon) */
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 420px;
+  max-width: 100%;
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  width: 18px;
+  height: 18px;
+  color: #a07850;
+  pointer-events: none;
+  transition: color 0.3s ease;
+  z-index: 1;
+}
+
+#search-input {
+  width: 100%;
+  padding: 14px 20px 14px 46px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #2d1a0e;
+  background: #ffffff;
+  border: 2px solid #e0cbb0;
+  border-radius: 50px;
+  outline: none;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(125, 64, 18, 0.06);
+}
+
+#search-input::placeholder {
+  color: #b09070;
+  font-weight: 400;
+}
+
+#search-input:focus {
+  border-color: rgb(194, 119, 13);
+  box-shadow:
+    0 0 0 4px rgba(194, 119, 13, 0.15),
+    0 4px 16px rgba(125, 64, 18, 0.12);
+}
+
+#search-input:focus + .search-icon,
+.search-wrapper:focus-within .search-icon {
+  color: rgb(194, 119, 13);
+}
+
+.search-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(
+    135deg,
+    rgb(125, 64, 18) 0%,
+    rgb(194, 119, 13) 100%
+  );
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+  box-shadow: 0 4px 14px rgba(125, 64, 18, 0.35);
+  white-space: nowrap;
+}
+
+.search-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(125, 64, 18, 0.45);
+  filter: brightness(1.08);
+}
+
+.search-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(125, 64, 18, 0.35);
 }
 
 #content {
@@ -327,12 +418,18 @@
   #content #search {
     flex-direction: column;
     align-items: stretch;
-    gap: 8px;
+    gap: 10px;
+    padding: 24px 16px 16px;
   }
 
-  #content #search input,
-  #content #search select {
+  .search-wrapper {
     width: 100%;
+  }
+
+  .search-btn {
+    width: 100%;
+    justify-content: center;
+    border-radius: 50px;
   }
 
   /* Products list */
