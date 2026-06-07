@@ -28,7 +28,6 @@ export async function renderProduct(id) {
   let products = await fetchData("products");
   // forEach: duyet qua tung phan tu trong ds san pham
   products.forEach((p) => {
-    // if (p.category === "coffee") {
     productHtml += `
             <div class="products-card">
                <img
@@ -47,7 +46,6 @@ export async function renderProduct(id) {
                <button id="cart-btn" onclick="addToCart('${p.id}')">Add to cart</button>
             </div>
          `;
-    // }
   });
 
   //innerHTML: chuyen ve dinh dang file html
