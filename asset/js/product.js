@@ -87,7 +87,7 @@ export async function renderProductDetails(id) {
               <input type="text" value="1" readonly />
               <button>+</button>
             </div>
-            <button class="btn btn-primary" style="flex: 1">
+            <button class="btn btn-primary" style="flex: 1" onclick="addToCart('${product.id}')">
               Add to cart
             </button>
             <a href="payment.html?id=${product.id}">

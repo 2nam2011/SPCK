@@ -79,7 +79,10 @@
     <script type="module" src="../asset/js/product.js"></script>
     <script type="module">
       import { initNav } from "../asset/js/nav.js";
+      import { addToCart } from "../asset/js/cart.js";
       import { renderProductDetails } from "../asset/js/product.js";
+
+      window.addToCart = addToCart;
 
       initNav();
       renderProductDetails("product-details");
