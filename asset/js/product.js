@@ -189,8 +189,9 @@ export async function renderSearchedProducts(products) {
                <h2 class="products-price">$${p.price}</h2>
                </div>
                <a href="product-detail.html?id=${p.id}">
-                  <button>Buy Now</button>
+                  <button id="buy-btn">Buy Now</button>
                </a>
+               <button id="cart-btn" onclick="addToCart('${p.id}')">Add to cart</button>
             </div>
          `;
     // }

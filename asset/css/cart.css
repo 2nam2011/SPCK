@@ -73,12 +73,12 @@
 #login-btn {
   background-color: rgb(125, 64, 18);
   color: white;
-  padding: 10px 20px;
+  padding: 8px 16px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(125, 64, 18, 0.2);
 }
@@ -92,14 +92,14 @@
 #nav-logout-btn {
   background-color: rgb(125, 64, 18);
   color: white;
-  padding: 10px 20px;
-  border-radius: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
-}
-
-#nav-logout-btn:hover {
-  background-color: rgb(194, 119, 13);
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(125, 64, 18, 0.2);
 }
 
 /* list */
@@ -234,9 +234,43 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
+}
+
+.cart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  height: 200px;
+  color: #777;
+}
+
+.cart-empty p {
+  font-size: 18px;
+}
+
+.cart-empty a {
+  font-size: 16px;
+  font-weight: 700;
+  color: #bda67b;
+  text-decoration: none;
+  padding: 10px 28px;
+  border: 2px solid #bda67b;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  letter-spacing: 0.5px;
+}
+
+.cart-empty a:hover {
+  background-color: #bda67b;
+  color: white;
+  box-shadow: 0 4px 16px rgba(189, 166, 123, 0.5);
+  transform: translateY(-2px);
 }
 
 .cart-header,
@@ -373,7 +407,6 @@
 
 .copyright p {
   color: white;
-  width: 98.5vw;
   text-align: center;
 }
 

@@ -1,119 +1,100 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cart</title>
-    <link rel="stylesheet" href="../asset/css/cart.css" />
-  </head>
 
-  <body>
-    <!-- HEADER -->
-    <header id="header">
-      <div class="container">
-        <div class="logo">
-          <img src="../asset/image/logo.png" alt="logo" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart</title>
+  <link rel="stylesheet" href="../asset/css/cart.css" />
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header id="header">
+    <div class="container">
+      <div class="logo">
+        <img src="../asset/image/logo.png" alt="logo" />
+      </div>
+      <div class="navigation">
+        <div class="nav-left">
+          <a href="./index.html">Home</a>
+          <a href="./aboutus.html">About</a>
+          <a href="./contacts.html">Contact</a>
+          <a href="./shop.html">Shop</a>
         </div>
-        <div class="navigation">
-          <div class="nav-left">
+        <div>
+          <a href="./cart.html">
+            <img src="../asset/image/cart-removebg-preview.png" alt="" height="48" />
+          </a>
+        </div>
+        <div class="nav-right">
+          <a id="nav-login-link" href="./login.html">
+            <button id="login-btn">Login</button>
+          </a>
+          <div id="nav-user-info" style="display: none; align-items: center; gap: 10px">
+            <span id="nav-user-name" style="font-weight: 600"></span>
+            <button id="nav-logout-btn">Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="introduction">
+    <div class="container">
+      <h1>Cart</h1>
+      <p><span>CoffeeKing</span> > Cart</p>
+    </div>
+  </div>
+
+  <div id="product-section" style="margin-top: 40px">
+    <div class="container">
+      <div id="cart">
+        <div class="loading"><div class="spinner"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div id="footer">
+    <div class="container">
+      <div class="footer-info">
+        <div class="left-info">
+          <div class="logo">
+            <img src="../asset/image/logo.png" alt="" />
+          </div>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus
+            ratione reiciendis aperiam consequuntur aspernatur fugit
+            consectetur! Quod, repellat iusto explicabo modi, quasi officia
+            exercitationem animi minima laborum ex nisi dolor.
+          </p>
+        </div>
+        <div class="right-info">
+          <h1>explore</h1>
+          <div class="footer-menu">
             <a href="./index.html">Home</a>
             <a href="./aboutus.html">About</a>
             <a href="./contacts.html">Contact</a>
             <a href="./shop.html">Shop</a>
           </div>
-          <div>
-            <a href="./cart.html">
-              <img
-                src="../asset/image/cart-removebg-preview.png"
-                alt=""
-                height="48"
-              />
-            </a>
-          </div>
-          <div class="nav-right">
-            <a id="nav-login-link" href="./login.html">
-              <button id="login-btn">Login</button>
-            </a>
-            <div
-              id="nav-user-info"
-              style="display: none; align-items: center; gap: 10px"
-            >
-              <span id="nav-user-name" style="font-weight: 600"></span>
-              <button id="nav-logout-btn">Logout</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <div id="introduction">
-      <div class="container">
-        <h1>Cart</h1>
-        <p><span>CoffeeKing</span> > Cart</p>
-      </div>
-    </div>
-
-    <div id="product-section" style="margin-top: 40px">
-      <div class="container">
-        <div id="cart"></div>
-
-        <div
-          style="
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-          "
-        >
-          <a href="index.html">← Quay lại mua hàng</a>
-          <h2 id="total">Tổng: $0</h2>
         </div>
       </div>
     </div>
-
-    <!-- FOOTER -->
-    <div id="footer">
-      <div class="container">
-        <div class="footer-info">
-          <div class="left-info">
-            <div class="logo">
-              <img src="../asset/image/logo.png" alt="" />
-            </div>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus
-              ratione reiciendis aperiam consequuntur aspernatur fugit
-              consectetur! Quod, repellat iusto explicabo modi, quasi officia
-              exercitationem animi minima laborum ex nisi dolor.
-            </p>
-          </div>
-          <div class="right-info">
-            <h1>explore</h1>
-            <div class="footer-menu">
-              <a href="./index.html">Home</a>
-              <a href="./aboutus.html">About</a>
-              <a href="./contacts.html">Contact</a>
-              <a href="./shop.html">Shop</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="copyright">
-        <p>Like-themes <span>© All Rights Reserved - 2017</span></p>
-      </div>
+    <div class="copyright">
+      <p>Like-themes <span>© All Rights Reserved - 2017</span></p>
     </div>
-    <script type="module">
-      import { app } from "../asset/js/firebase_config.js";
-      import { loadCart } from "../asset/js/cart.js";
-      import { initNav } from "../asset/js/nav.js";
-      import { getCurrentUser } from "../asset/js/auth.js";
+  </div>
+  <script type="module">
+    import { app } from "../asset/js/firebase_config.js";
+    import { loadCart } from "../asset/js/cart.js";
+    import { initNav } from "../asset/js/nav.js";
+    import { getCurrentUser } from "../asset/js/auth.js";
 
-      (async () => {
-        initNav();
-        const user = getCurrentUser();
-        if (user) {
-          await loadCart(user.uid);
-        }
-      })();
-    </script>
-  </body>
+    (async () => {
+      initNav();
+    })();
+  </script>
+</body>
+
 </html>

@@ -52,12 +52,12 @@
 #login-btn {
   background-color: rgb(125, 64, 18);
   color: white;
-  padding: 10px 20px;
+  padding: 8px 16px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(125, 64, 18, 0.2);
 }
@@ -71,12 +71,12 @@
 #nav-logout-btn {
   background-color: rgb(125, 64, 18);
   color: white;
-  padding: 10px 20px;
+  padding: 8px 16px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(125, 64, 18, 0.2);
 }
@@ -247,7 +247,6 @@
 
 .copyright p {
   color: white;
-  width: 98.5vw;
   text-align: center;
 }
 
@@ -294,7 +293,10 @@
 }
 
 #products-section {
-  margin: 0 48px;
+  margin-top: 0;
+  margin-bottom: 80px;
+  margin-left: 48px;
+  margin-right: 48px;
 }
 
 #search {
@@ -504,6 +506,33 @@
 .slider-arrow:hover {
   background-color: rgb(125, 64, 18);
   color: white;
+}
+
+/* ===== SPINNER ===== */
+.slider-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #bda67b;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* ===== RESPONSIVE - ĐIỆN THOẠI ===== */

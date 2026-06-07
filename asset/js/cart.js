@@ -11,6 +11,11 @@ import { app } from "./firebase_config.js";
 const db = getFirestore(app);
 
 export async function loadCart(uid) {
+  const container = document.getElementById("cart");
+  if (container && !container.querySelector(".spinner")) {
+    container.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+  }
+
   const docRef = doc(db, "carts", uid);
   const docSnap = await getDoc(docRef);
 
@@ -20,16 +25,17 @@ export async function loadCart(uid) {
 
     renderCart(cart.items);
   } else {
-    console.log("Chưa có giỏ hàng");
+    renderEmptyCart();
   }
 }
 
 export async function renderCart(items) {
   const container = document.getElementById("cart");
-  const totalEl = document.getElementById("total");
 
-  // Hiển thị loading
-  container.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+  // Hiển thị loading nếu chưa có spinner
+  if (container && !container.querySelector(".spinner")) {
+    container.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+  }
 
   const products = await Promise.all(
     items.map(async (item) => {
@@ -49,8 +55,11 @@ export async function renderCart(items) {
     `;
 
   let total = 0;
+  let hasProducts = false; // Biến kiểm tra xem giỏ hàng có sản phẩm hay không
+
   products.forEach((product) => {
     if (!product) return;
+    hasProducts = true; // Gán thành true khi tìm thấy sản phẩm hợp lệ
     const { item, data: p } = product;
     total += p.price * item.quantity;
     html += `
@@ -75,8 +84,26 @@ export async function renderCart(items) {
       `;
   });
 
+  // Kiểm tra với biến hasProducts để hiển thị
+  if (!hasProducts) {
+    renderEmptyCart();
+    return;
+  }
+
+  // Chuyển thẻ link quay lại mua hàng và total vào biến html nếu giỏ hàng của user có sản phẩm
+  html += `
+    <div style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 20px;
+        ">
+      <a href="index.html">← Quay lại mua hàng</a>
+      <h2>Tổng: $${total.toFixed(2)}</h2>
+    </div>
+  `;
+
   container.innerHTML = html;
-  totalEl.textContent = "Tổng: $" + total.toFixed(2);
 }
 
 export async function addToCart(productId) {
@@ -164,3 +191,15 @@ export async function removeItem(productId) {
 }
 
 window.removeItem = removeItem;
+
+function renderEmptyCart() {
+  const container = document.getElementById("cart");
+  if (container) {
+    container.innerHTML = `
+      <div class="cart-empty">
+        <p>Giỏ hàng bạn đang trống, hãy mua hàng!</p>
+        <a href="./shop.html">Đến trang Shop</a>
+      </div>
+    `;
+  }
+}
